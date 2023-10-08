@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the Classiques</title>
+    <link rel="icon" type="image/png" href="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/black-male-band-6%20copy.png?v=1695075332218">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/draw-black.gif?v=1695073537077');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            user-select: none;
+        }
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+            animation: radiate 4s linear infinite alternate;
+            background-image: radial-gradient(circle, black, grey);
+            background-size: 200% 200%;
+            transition: background-position 1s ease;
+        }
+
+        @keyframes radiate {
+            0% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+      
+        .subtext {
+            font-family: "Yanone Kaffeesatz";
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            background-image: linear-gradient(350deg, cyan, grey, cyan);
+            text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+            margin-top: 5px; /* Adjust the margin as needed */
+        }
+
+        h1 {
+          font-family: "Yanone Kaffeesatz";
+          font-size: 8rem;
+          letter-spacing: 0.1em;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          background-image: linear-gradient(350deg, black, white, black, grey, silver, grey, cyan);
+          margin: 0;
+          text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+        }
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 6rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: transparent;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+        font-size: 1.2rem; 
+        line-height: 1.6; 
+        color: silver; 
+        padding: 10px; 
+        border-radius: 5px; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); 
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 2px solid grey;
+        text-align: center;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    
+        
+        .scrolling-images {
+            display: inline-block;
+            white-space: nowrap;
+            left: 0%;
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            
+        }
+
+        .scrolling-images img {
+            width: 200px; 
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 8px; 
+            box-shadow: 5px 0 5px white;
+        }
+        @media (max-width: 900px) {
+              .scrolling-images img {
+                  width: 100px; 
+              }
+          }
+          @media (max-width: 480px) {
+              .scrolling-images img {
+                  width: 50px;
+              }
+          }
+      
+      .containerC{
+        margin: 4% auto;
+        width: 500px;
+        height: 500px;
+        position: relative;
+        perspective: 1000px;
+      }
+      @media (max-width: 900px) {
+          .containerC {
+              width: 500px; 
+          }
+      }
+      @media (max-width: 480px) {
+          .containerC {
+              width: 250px;
+          }
+      }
+      #carousel{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        animation: rotation 20s infinite linear;
+      }
+      #carousel:hover{
+/*         animation-play-state: paused; */
+      }
+      #carousel figure{
+        display: flex;
+        position: absolute;
+        width: 186px;
+        height: 300px;
+        left: 10px;
+        top: 10px;
+        background: black;
+        overflow: scroll;
+        border: solid 5px silver;
+        
+      }
+      #carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px); border: solid 5px grey;}
+      #carousel figure:nth-child(2) { transform: rotateY(40deg) translateZ(288px); border: solid 5px silver;}
+      #carousel figure:nth-child(3) { transform: rotateY(80deg) translateZ(288px); border: solid 5px grey;}
+      #carousel figure:nth-child(4) { transform: rotateY(120deg) translateZ(288px); border: solid 5px silver}
+      #carousel figure:nth-child(5) { transform: rotateY(160deg) translateZ(288px); border: solid 5px grey}
+      #carousel figure:nth-child(6) { transform: rotateY(200deg) translateZ(288px); border: solid 5px silver}
+      #carousel figure:nth-child(7) { transform: rotateY(240deg) translateZ(288px); border: solid 5px grey}
+      #carousel figure:nth-child(8) { transform: rotateY(280deg) translateZ(288px); border: solid 5px silver}
+      #carousel figure:nth-child(9) { transform: rotateY(320deg) translateZ(288px); border: solid 5px grey}
+
+      #carousel img{
+        -webkit-filter: grayscale(1);
+        cursor: pointer;
+        transition: all .5s ease;
+      }
+      #carousel img:hover{
+        -webkit-filter: grayscale(0);
+        transform: scale(1.2,1.2);
+      }
+
+      @keyframes rotation{
+        from{
+          transform: rotateY(0deg);
+        }
+        to{
+          transform: rotateY(360deg);
+        }
+      }
+      
+      .gif-container {
+          display: flex;
+          justify-content: center; 
+          align-items: center;
+          height: 15vh; 
+      }
+
+      .gif {
+          max-width: 100%;
+          max-height: 100%;
+          margin-top: 500px;
+      }
+      @media (max-width: 900px) {
+          .gif-container {
+              height: 8vh; 
+          }
+      }
+      @media (max-width: 480px) {
+          .gif-container {
+              height: 6vh; 
+          }
+      }
+      
+      #menu-container {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          z-index: 999;
+      }
+
+      #menu-toggle {
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 1px;
+      }
+
+      .menu-icon {
+          background-color: grey;
+          height: 3px;
+          width: 5px;
+      }
+
+      #menu {
+          background-color: #333;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          border-radius: 5px;
+          position: absolute;
+          left: -250px;
+          opacity: 0;
+          transition: left 0.3s ease, opacity 0.3s ease;
+      }
+
+      #menu ul {
+          list-style: none;
+          padding: 0;
+      }
+
+      #menu li {
+          margin-bottom: 15px;
+      }
+
+      #menu a {
+          text-decoration: none;
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+      }
+
+      .hidden {
+          display: none;
+      }
+      
+      .info-bar {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgba(0, 0, 0, 0.7);
+          color: white;
+          padding: 5px;
+          border-radius: 5px;
+          animation: info-bar-animation 4s linear infinite alternate;
+      }
+
+      .info-text {
+          font-size: 0.7rem; 
+          margin: 0;
+      }
+      
+
+      @keyframes info-bar-animation {
+          0% {
+              transform: translate(-10%, -90%) rotate(0deg);
+          }
+          100% {
+              transform: translate(-90%, -10%) rotate(360deg);
+          }
+      }
+      
+      .countdown-container {
+          text-align: center;
+          position: fixed;
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 5px;
+          padding: 5px;
+      }
+
+      .countdown {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-size: 20px;
+      }
+
+      .countdown-item {
+          width: 40px;
+          text-align: center;
+          background-color: rgba(0, 0, 0, 0.8);
+          border-radius: 5px;
+          margin: 0 5px;
+          padding: 5px 0;
+      }
+
+      .countdown-separator {
+          color: rgba(255, 255, 255, 0.8);
+      }
+      
+      footer {
+          background-color: black;
+          color: white;
+          padding: 0.5rem 0;
+          text-align: center;
+          font-family: Arial, sans-serif;
+          position: relative;
+          top: 300px;
+          margin-bottom: 400px;
+          
+      }
+
+      .footer-text p {
+          font-size: 14px;
+          margin: 10px 0;
+          letter-spacing: 1px;
+      }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>the Classiques</h1>
+        <spam class="subtext">Alternate Digital Identities.</spam>
+
+    </header>
+
+    <div class="container">
+        <p>
+            Straddling the line between fine art and new media, the Classiques collection explores themes of alternate digital identities through single line strokes of varying thickness, abstract anime characters, distinct colors. 
+          <br>
+          <br>
+            Focusing on the very essence of drawing strokes, it creates singular visual experience to the beholder. 
+          <br>
+          <br>
+            A total of 2048 digital identities in the collection, split over 7 fractions. 
+          <br>
+          <br>
+            Seals hold historical and cultural significance as tangible artifacts that provide valuable insights into the past. 
+          <br>
+          <br>
+            Less noise. More art.
+          <br>
+        </p>
+      <br>
+      <br>
+      <br>
+<!--         <iframe src="" width="100%" height="600"></iframe> -->
+        <p>
+          Minting 10-10-23 @ 12:34 EST [Tuesday Noon]
+          <br>
+          <br>
+          Supply : 2048
+          <br>
+          <br>
+          previous holders - 0.001 ETH [12:34 to 13:00 EST]
+          <br>
+          <br>
+          public - 0.003 ETH [from 13:00 EST]
+        </p>
+        
+      <br>
+      <br>
+      <br>
+      
+
+      
+      <div class="containerC">
+		<div id="carousel">
+			<figure><img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/heheClassq.gif?v=1695256738866" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/32.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/552.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/662.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/1342.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/459.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/999.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/111.png" alt=""></figure>
+			<figure><img src="https://ipfs.io/ipfs/bafybeieu6wgdfe7hizbapagon4piwpjln5reg455dswpdjgo2pty5wv25q/2000.png" alt=""></figure>
+		</div>
+     <div class="info-bar">
+        <p class="info-text">Hover / Scroll</p>
+    </div>
+	</div>
+      </div>
+      
+        <div class="scrolling-images">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/gold-male-hoodie-4.png?v=1695076119622" alt="classique 1">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/black-male-hat-23.png?v=1695076056204" alt="classique 2">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/cyan-male-default-141.png?v=1695076092554" alt="classique 3">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/red-male-crown-12.png?v=1695078940641" alt="classique 4">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/gold-female-horns-2.png?v=1695076235711" alt="classique 5">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/violet-female-gas%20mask-14.png?v=1695076133748" alt="classique 6">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/green-male-scarf-17.png?v=1695076212158" alt="classique 7">
+            <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/orange-male-piercings-5.png?v=1695076199382" alt="classique 8">
+        </div>
+      
+  <div class="gif-container">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/black.png?v=1695259879325" alt="classique 9" class="gif">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/cyan.png?v=1695262909402" alt="classique 10" class="gif">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/blood.png?v=1695259886346" alt="classique 11" class="gif">    
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/gold.png?v=1695259884250" alt="classique 12" class="gif">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/violet.png?v=1695262896790" alt="classique 13" class="gif">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/green.png?v=1695262910581" alt="classique 14" class="gif">
+    <img src="https://cdn.glitch.global/1b7adb0c-f453-43cc-a521-2e23833720c6/antique-gold.gif?v=1695259688302" alt="classique 15" class="gif">
+    <br> 
+</div>
+  
+<div id="menu-container">
+    <div id="menu-toggle">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+    </div>
+    <div id="menu" class="hidden">
+        <ul>
+<!--             <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#collection">Collection</a></li> updating if you are reading this-->
+          
+        </ul>
+      <p>change X pfp. DM on X with wallet address</p>
+    </div>
+  <div class="countdown-container">
+    <div class="countdown">
+        <div id="hours" class="countdown-item">00</div>
+        <div class="countdown-separator">:</div>
+        <div id="minutes" class="countdown-item">00</div>
+        <div class="countdown-separator">:</div>
+        <div id="seconds" class="countdown-item">00</div>
+    </div>
+</div>
+</div>
+<script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  
+    document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', function () {
+        if (menu.classList.contains('hidden')) {
+            menuToggle.innerHTML = '&#10005;'; 
+            menu.classList.remove('hidden');
+            menu.style.left = '20px';
+            menu.style.opacity = '1';
+        } else {
+            menuToggle.innerHTML = '<div class="menu-icon"></div><div class="menu-icon"></div><div class="menu-icon"></div>';
+            menu.classList.add('hidden');
+            menu.style.left = '-250px';
+            menu.style.opacity = '0';
+        }
+        });
+    });
+
+
+
+    // Set the date we're counting down to
+    var countDownDate = new Date("Oct 10, 2023 12:34:00 EST").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Convert days to hours
+      hours += days * 24;
+            
+          
+            document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    }, 1000);
+</script>
+<footer>
+    <div class="footer-text">
+        <p>&copy; 2023 The Classiques. Model rights reserved.</p>
+        <p>Designed and Created by 1.618/</p>
+    </div>
+</footer>
+</body>
+</html>
