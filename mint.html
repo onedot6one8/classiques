@@ -229,8 +229,8 @@ button:hover {
             const mintNFT = async (amount, payableAmount) => {
             try {
           
-              const transaction = await contract.methods.degentsMint(amount).send({
-              // const transaction = await contract.methods.publicMint(amount).send({
+              // const transaction = await contract.methods.degentsMint(amount).send({
+              const transaction = await contract.methods.publicMint(amount).send({
                 from: account,
                 value: web3.utils.toWei(payableAmount.toString(), "ether"),
               });
@@ -267,8 +267,8 @@ button:hover {
             
            
           
-            price = 0.001;
-            // price = 0.003;
+            // price = 0.001;
+            price = 0.003;
             const payableAmount = price * amount;
              console.log("price", payableAmount);
             mintNFT(amount, payableAmount);
@@ -307,7 +307,7 @@ button:hover {
 
       // Function to increment the counter
       function increment() {
-          if (counter < 10) {
+          if (counter < 3) {
               counter++;
               updateCounter();
           }
